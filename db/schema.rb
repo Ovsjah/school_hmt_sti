@@ -17,7 +17,7 @@ ActiveRecord::Schema.define(version: 2021_03_07_002347) do
     t.bigint "object_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["object_id"], name: "index_school_relations_on_object_id"
+    t.index ["object_id", "subject_id"], name: "index_school_relations_on_object_id_and_subject_id", unique: true
     t.index ["subject_id", "object_id"], name: "index_school_relations_on_subject_id_and_object_id", unique: true
   end
 
