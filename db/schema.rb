@@ -13,12 +13,12 @@
 ActiveRecord::Schema.define(version: 2021_03_07_002347) do
 
   create_table "school_relations", force: :cascade do |t|
-    t.bigint "subject_id", null: false
-    t.bigint "object_id", null: false
+    t.bigint "performer_id", null: false
+    t.bigint "receiver_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["object_id", "subject_id"], name: "index_school_relations_on_object_id_and_subject_id", unique: true
-    t.index ["subject_id", "object_id"], name: "index_school_relations_on_subject_id_and_object_id", unique: true
+    t.index ["performer_id", "receiver_id"], name: "index_school_relations_on_performer_id_and_receiver_id", unique: true
+    t.index ["receiver_id", "performer_id"], name: "index_school_relations_on_receiver_id_and_performer_id", unique: true
   end
 
   create_table "users", force: :cascade do |t|

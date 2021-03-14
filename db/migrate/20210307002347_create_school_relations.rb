@@ -1,11 +1,11 @@
 class CreateSchoolRelations < ActiveRecord::Migration[6.1]
   def change
     create_table :school_relations do |t|
-      t.bigint :subject_id, null: false
-      t.bigint :object_id, null: false
+      t.bigint :performer_id, null: false
+      t.bigint :receiver_id, null: false
       t.timestamps
-      t.index %i(subject_id object_id), unique: true
-      t.index %i(object_id subject_id), unique: true
+      t.index %i(performer_id receiver_id), unique: true
+      t.index %i(receiver_id performer_id), unique: true
     end
   end
 end
